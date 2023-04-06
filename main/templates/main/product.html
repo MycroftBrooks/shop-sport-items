@@ -18,7 +18,12 @@
                 <h4>Пол: <h4><p class="lead">{{product.get_sex_display}}</p>
                 <h4>Размер: <h4><p class="lead">{{product.size}}</p>
                 <div class="d-flex">
+                    {% if request.user.is_authenticated %}
                     <a href="{{product.get_add_to_cart_url}}" class="btn btn-primary btn-lg" role="button">Добавить в корзину</a>
+                    {% endif %}
+                    {% if request.user.is_anonymous %}
+                    <a href="{% url 'login'%}" class="btn btn-primary btn-lg" role="button">Добавить в корзину</a>
+                    {% endif %}
                     {% if request.user.is_staff and request.user.is_authenticated %}<a href="{% url 'update_product' product.id %}" class="btn btn-outline-secondary btn-lg mx-2" role="button">Редактировать</a> {% endif %}
                     {% if request.user.is_staff and request.user.is_authenticated %}<a href="{% url 'delete_product' product.id %}" class="btn btn-outline-danger btn-lg" role="button">Удалить с БД</a> {% endif %}
                     {% comment %} <a href="{{product.get_remove_from_cart_url}}" class="btn btn-outline-danger btn-lg" role="button">Удалить с корзины</a>  {% endcomment %}
