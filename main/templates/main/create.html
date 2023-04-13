@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Создать товар
+{% endblock %}
+
+{% block content%}
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <center><h1>Создать товар</h1></center>
+    {% if submitted %}
+        <div class="alert alert-success" role="alert">
+            Товар успешно создан!
+        </div>
+    {% endif %}
+    
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Создать</button>
+        <span>{{error}}</span>
+    </form>
+</div>
+{% endblock %}

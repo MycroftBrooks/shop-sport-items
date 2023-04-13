@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - pg-admin-data:/var/lib/pgadmin
+    ports:
+      - "5051:80"
+volumes:
+  app-db-data:
+  pg-admin-data:
+
+

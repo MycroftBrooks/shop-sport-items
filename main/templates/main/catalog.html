@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% block title %}
+AKE Store: Каталог
+{% endblock %}
+
+{% block content%}
+<center><h1>Каталог товаров</h1></center><br>
+    {% if catalog_list %}
+            <section class="text-center mb-4">
+                <div class="row">
+                  {% for product in catalog_list %}
+                  <div class="col-lg-3 col-md-6 mb-4">
+                    <!--Card-->
+                    <div class="card" style="">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            {% load static %}
+                          <a href="{{ product.get_absolute_url }}"><img src="{{product.image}}" class="card-img-top" alt=""></a>
+                          <a>
+                            <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+                        <!--Card image-->
+          
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                          <!--Category & Title-->
+                          <a href="" class="text-muted" >
+                            <h7>{{ product.get_category_display }}</h7>
+                          </a>
+                          <h4>
+                            <strong>
+                              <a href="{{ product.get_absolute_url }}" style="color: black;">{{ product.name }}
+                              </a>
+                            </strong>
+                          </h4>
+          
+                          <h6 class="text-muted">
+                            <strong>{{ product.price }} руб.</strong>
+                          </h6>
+          
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </section>
+    {% else %}
+        <center><p>Товары отсуствуют</p></center>
+    {% endif %}
+{% endblock %}
