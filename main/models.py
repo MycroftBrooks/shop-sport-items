@@ -3,9 +3,14 @@ from django.db import models
 from django.urls import reverse
 
 CATEGORY_CHOICES = (
-    ("S", "Shirt"),
-    ("P", "Pants"),
-    ("J", "Sweater"),
+    ("Рубашка", "Рубашка"),
+    ("Штаны", "Штаны"),
+    ("Кофта", "Кофта"),
+    ("Трусы", "Трусы"),
+    ("Кепка", "Кепка"),
+    ("Шорты", "Шорты"),
+    ("Куртка", "Куртка"),
+    ("Шапка", "Шапка"),
 )
 
 SEX_CHOICES = (("M", "Для мужчин"), ("W", "Для женщин"))
@@ -22,7 +27,7 @@ SIZE_CHOICES = (
 
 class catalog(models.Model):
     name = models.CharField("Название товара", max_length=100)
-    category = models.CharField("Категория", choices=CATEGORY_CHOICES, max_length=1)
+    category = models.CharField("Категория", choices=CATEGORY_CHOICES)
     sex = models.CharField("Пол", choices=SEX_CHOICES, max_length=1)
     size = models.CharField("Размер", choices=SIZE_CHOICES, max_length=3)
     price = models.FloatField()
