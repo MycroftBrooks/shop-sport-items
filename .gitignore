@@ -158,7 +158,5 @@ cython_debug/
 
 .idea
 .vscode
-//migrations
 
-main/migrations/
 static/main/images/
