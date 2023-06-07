@@ -8,7 +8,7 @@
     <div class="container px-4 px-lg-5 my-1">
         <div class="row gx-4 gx-lg-5 align-items-center">
             {% load static %}
-            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/{{ product.image }}" ></div>
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/static/media/{{product.image}}" ></div>
             <div class="col-md-6">
                 <div class="small mb-1">{{ product.get_category_display }}</div>
                 <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
