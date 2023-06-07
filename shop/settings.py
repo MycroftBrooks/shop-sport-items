@@ -30,7 +30,7 @@ SECRET_KEY = config("BACKEND_SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 # Application definition
 

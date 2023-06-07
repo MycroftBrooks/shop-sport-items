@@ -159,4 +159,4 @@ cython_debug/
 .idea
 .vscode
 
-main/static/main/images/
+static/main/images/
