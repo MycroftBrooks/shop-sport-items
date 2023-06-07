@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import include, path
+from django.urls import path
 
 from . import views
-from .views import DeleteProduct, OrderSummaryView
+from .views import OrderSummaryView
 
 urlpatterns = [
     path("", views.index, name="index"),
